@@ -9,15 +9,12 @@ readme = "README.md"
 [project.optional-dependencies]
 dev = [
     "pytest",
-    "scriv[toml]",
     "twine",
-    "cibuildwheel",
-    "Cython",
     "build",
 ]
 
 [build-system]
-requires = ["setuptools", "wheel", "Cython"]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [tool.tox]
@@ -29,11 +26,3 @@ envlist = py{38,39,310}, pypy{38,39}
 deps = pytest
 commands = pytest
 """
-
-[tool.cibuildwheel]
-test-requires = "pytest"
-test-command = "pytest -v {project}/tests"
-
-[tool.scriv]
-version = "literal: pyproject.toml: project.version"
-fragment_directory = "news"
